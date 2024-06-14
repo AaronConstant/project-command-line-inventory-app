@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Chamomile",
+    "id": "QLN5oX",
+    "steep": "5 minutes",
+    "description": "Sleep, Digestion"
+  },
+  {
+    "name": "Lavendar",
+    "id": "yKV9hp",
+    "steep": "4 minutes",
+    "description": "Anxiety, Mood"
+  },
+  {
+    "name": "Hibiscus",
+    "id": "f7EiSw",
+    "steep": "4 minutes",
+    "description": "Antioxidant, Blood Pressure"
+  },
+  {
+    "name": "Nettle",
+    "id": "183KPs",
+    "steep": "7 minutes",
+    "description": "Brain Function, Immune System"
+  },
+  {
+    "name": "Raspberry Leaf",
+    "id": "z_E1Yd",
+    "steep": "8 minutes",
+    "description": "Digestive, Hormone Balance"
+  },
+  {
+    "name": "Matcha leaf",
+    "id": "x0lmlJ",
+    "steep": "7 minutes",
+    "description": "Cholesterol, Brain Function, Energy"
+  },
+  {
+    "name": "Black Leaf/Camellia sinensis assamica",
+    "id": "NRHiQK",
+    "steep": "7 minutes",
+    "description": "Antioxidants, Oral Health"
+  }
+]
