@@ -1,7 +1,7 @@
 const inform = console.log;
 const { writeJSONFile, readJSONFile } = require("./src/helpers");
 
-const { create, index } = require('./src/herbStockController');
+const { create, index, show } = require('./src/herbStockController');
 
 
 function run() {
@@ -28,7 +28,11 @@ function run() {
             writeToFile = true; 
             break;
 
-        // case 'show': 
+        case 'show': 
+            const specificHerb = show(herbList, herb)
+            inform(specificHerb);
+            break;
+    
 
         default: 
             inform("There was an error!")
