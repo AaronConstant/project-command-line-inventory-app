@@ -1,7 +1,6 @@
 const { nanoid } = require('nanoid');
 
 const inform = console.log;
-// const herbs = require('../data/herbStocks.json');
 
 const create = (herbs, currentHerb, time, benefits) => {
 
@@ -34,8 +33,10 @@ const show = (herbList, herbId) => {
         return `ID is case sensitive. The ID ${herbId} is not a valid ID. Please re-enter ID and try again.`;
     }
 };
-
+                                
 const update = (herbList, herbId, herbListUpdate, updateInfo) => {
+
+
     const herbIndex = herbList.findIndex(herb => herb.id === herbId)
 
     switch (herbListUpdate) {
@@ -56,8 +57,8 @@ const update = (herbList, herbId, herbListUpdate, updateInfo) => {
 
 
     }
-
-
+    // return the updated herbList with the modifications. When updating information always return with changes. 
+    return herbList;
 
 }
 
@@ -77,7 +78,7 @@ const destroy = (herbList, herbId) => {
 }
 
 
-module.exports = { create, index, show, destroy, edit }
+module.exports = { create, index, show, destroy, update }
 
 
 

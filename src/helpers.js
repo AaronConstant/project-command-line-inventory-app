@@ -5,6 +5,7 @@ const readJSONFile = (path, fileName) => {
 
     const herbs = readFileSync( `${path}/${fileName}`, "utf8" );
 
+    // if 
     return herbs ? JSON.parse(herbs) : [];
 }
 
