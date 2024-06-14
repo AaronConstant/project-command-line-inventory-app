@@ -42,9 +42,15 @@
     "description": "Antioxidants, Oral Health"
   },
   {
-    "name": "Wisteria",
-    "id": "WJAoUA",
+    "name": "Ginger",
+    "id": "DVG285",
     "steep": "8 minutes",
-    "description": "Demon repellant, Glowing skin"
+    "description": "Pain Relief, Immune System"
+  },
+  {
+    "name": "Ginger",
+    "id": "fg_h4q",
+    "steep": "8 minutes",
+    "description": "Pain Relief, Immune System"
   }
 ]

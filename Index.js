@@ -1,7 +1,7 @@
 const inform = console.log;
 const { writeJSONFile, readJSONFile } = require("./src/helpers");
 
-const { create, index, show } = require('./src/herbStockController');
+const { create, index, show, destroy, edit } = require('./src/herbStockController');
 
 
 function run() {
@@ -14,13 +14,14 @@ function run() {
     let writeToFile = false;
 
     let herbList = readJSONFile('./data','herbStocks.json')
-
+    
 
     switch(action) {
 
         case 'index':
             const herbView = index(herbList)
             inform(herbView);
+            inform('Herb added to stock!')
             break;
 
         case "create":
@@ -32,9 +33,15 @@ function run() {
             const specificHerb = show(herbList, herb)
             inform(specificHerb);
             break;
+
+        case 'update':
+            herbListUpdated = edit(herbList, herb, process.argv[3], process.argv[4])
+            writeToFile = true;
+            break;
         
         case 'destroy' : 
-            
+            herbListUpdated = destroy(herbList, herb)
+            writeToFile = true;
             break;
 
         default: 
@@ -44,6 +51,5 @@ function run() {
         writeJSONFile('./data','herbStocks.json', herbListUpdated)
     }
 }
-
 run()
 

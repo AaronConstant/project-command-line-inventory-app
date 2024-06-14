@@ -35,6 +35,32 @@ const show = (herbList, herbId) => {
     }
 };
 
+const update = (herbList, herbId, herbListUpdate, updateInfo) => {
+    const herbIndex = herbList.findIndex(herb => herb.id === herbId)
+
+    switch (herbListUpdate) {
+        case "id" :
+            herbList[herbIndex].id = updateInfo;
+            break;
+        case "steep" : 
+            herbList[herbIndex].steep = updateInfo;
+            break;
+        case "name": 
+            herbList[herbIndex].name = updateInfo;
+            break;
+        case "description":
+            herbList[herbIndex].description = updateInfo;
+            break;
+        default:
+            inform("There was an Error! Check Information! ")
+
+
+    }
+
+
+
+}
+
 const destroy = (herbList, herbId) => {
 
     // FindIndex returns the index if the conditions are met and will return the index at which the element can be found or -1 if nothing was found. 
@@ -43,6 +69,7 @@ const destroy = (herbList, herbId) => {
     if(herbIndex > -1) {
         herbList.splice(herbIndex, 1)
         inform('Herb was successfully removed!')
+        return herbList;
     } else {
         inform('Herb was not found, ')
         return herbList;
@@ -50,7 +77,7 @@ const destroy = (herbList, herbId) => {
 }
 
 
-module.exports = { create, index, show, destroy }
+module.exports = { create, index, show, destroy, edit }
 
 
 
