@@ -32,7 +32,10 @@ function run() {
             const specificHerb = show(herbList, herb)
             inform(specificHerb);
             break;
-    
+        
+        case 'destroy' : 
+            
+            break;
 
         default: 
             inform("There was an error!")

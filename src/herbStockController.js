@@ -35,8 +35,22 @@ const show = (herbList, herbId) => {
     }
 };
 
+const destroy = (herbList, herbId) => {
 
-module.exports = { create, index, show }
+    // FindIndex returns the index if the conditions are met and will return the index at which the element can be found or -1 if nothing was found. 
+    const herbIndex = herbList.findIndex(herb => herb.id === herbId)
+
+    if(herbIndex > -1) {
+        herbList.splice(herbIndex, 1)
+        inform('Herb was successfully removed!')
+    } else {
+        inform('Herb was not found, ')
+        return herbList;
+    }
+}
+
+
+module.exports = { create, index, show, destroy }
 
 
 
