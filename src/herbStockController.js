@@ -1,5 +1,6 @@
 const { nanoid } = require('nanoid');
 const Table = require('cli-table')
+const chalk = require('chalk')
 
 const inform = console.log;
 
@@ -22,20 +23,20 @@ const index = (herbList) => {
         head: headers,
         colWidths: [40, 8, 12, 38],
         style: {
-            head: ['green'],
+            head: ['cyan', 'bold'],
             border:['blue']
         }
     });
-
+    
     herbList.forEach(herb => {
+        herb.name = chalk.green.bold(herb.name)
         table.push(headers.map(header => herb[header]))
 
+        // herbList.map(herb => {
+        //     return console.table(herb)
+        // })    
     })
-
-    // herbList.map(herb => {
-    //     return console.table(herb)
-    // })    
-
+    
     inform(table.toString())
 }
 
