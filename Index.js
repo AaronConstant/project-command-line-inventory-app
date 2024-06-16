@@ -4,13 +4,17 @@ const { writeJSONFile, readJSONFile } = require("./src/helpers");
 const { create, index, show, destroy, update } = require('./src/herbStockController');
 
 function run() {
-
+    //initializing each entry within the CLI within process.argv at the indices
     const action = process.argv[2];
     const herb = process.argv[3];
     const time = process.argv[4];
     const benefits = process.argv[5];
     let herbListUpdated = [];
+
+    //conditional to for if statement to update JSON file with any changes with the case switches. 
     let writeToFile = false;
+
+
     let herbList = readJSONFile('./data','herbStocks.json')
     
 

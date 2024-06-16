@@ -17,26 +17,36 @@ const create = (herbs, currentHerb, time, benefits) => {
 }
 
 const index = (herbList) => {
-    const headers = Object.keys(herbList[0])
-    
+
+    const headers = Object.keys(herbList[0]) // an array of the herbList data Keys. 
+
+    // head, colWidths, etc.  are properties similar to CSS. 
+
+    // table returns a table object that allows you to build and format ASCII tables in Node.js which allows you to apply the below changes before converting it into a string representation output. 
     const table = new Table({
-        head: headers,
-        colWidths: [40, 8, 12, 38],
+        head: headers, // Can determine the headers using an array as the basic structure utilizing use table.
+        colWidths: [40, 8, 12, 38], // self explanatory.
         style: {
-            head: ['cyan', 'bold'],
+            head: ['cyan', 'bold'], // initializing styles to the head key of headers array.
             border:['blue']
         }
     });
-    
+        // creates the styling for each herb specificed value using the chalk dependency which will take each value and will need it returned within itself. 
+
     herbList.forEach(herb => {
         herb.name = chalk.green.bold(herb.name)
+        herb.id = chalk.black.bold(herb.id)
+        herb.description = chalk.yellow.italic(herb.description)
+        herb.steep = chalk.red(herb.steep)
+
+        // to add rows you require an array and utilization of a native array method assists with the application of conditions.
         table.push(headers.map(header => herb[header]))
 
         // herbList.map(herb => {
         //     return console.table(herb)
         // })    
     })
-    
+    // the toString() converts the table object into a table formatted string representation where it will print in the console.log.
     inform(table.toString())
 }
 
@@ -76,7 +86,7 @@ const update = (herbList, herbId, herbListUpdate, updateInfo) => {
 
 
     }
-    // return the updated herbList with the modifications. When updating information always return with changes. 
+    // return the updated herbList with the modifications. When updating information always return with data/ array of objects. 
     return herbList;
 
 }
@@ -84,13 +94,16 @@ const update = (herbList, herbId, herbListUpdate, updateInfo) => {
 const destroy = (herbList, herbId) => {
 
     // FindIndex returns the index if the conditions are met and will return the index at which the element can be found or -1 if nothing was found. 
-    const herbIndex = herbList.findIndex(herb => herb.id === herbId)
+
+    const herbIndex = herbList.findIndex( herb => herb.id === herbId )
 
     if(herbIndex > -1) {
         herbList.splice(herbIndex, 1)
         inform('Herb was successfully removed!')
         return herbList;
+
     } else {
+
         inform('Herb was not found! ')
         return herbList;
     }
