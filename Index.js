@@ -3,7 +3,6 @@ const { writeJSONFile, readJSONFile } = require("./src/helpers");
 
 const { create, index, show, destroy, update } = require('./src/herbStockController');
 
-
 function run() {
 
     const action = process.argv[2];
@@ -20,12 +19,12 @@ function run() {
         case 'index':
             const herbView = index(herbList)
             inform(herbView);
-            inform('Herb added to stock!')
             break;
-
-        case "create":
-            herbListUpdated = create(herbList, herb, time, benefits)
-            writeToFile = true; 
+            
+            case "create":
+                herbListUpdated = create(herbList, herb, time, benefits)
+                writeToFile = true; 
+                inform('Herb added to stock!')
             break;
 
         case 'show': 

@@ -1,9 +1,9 @@
 const { nanoid } = require('nanoid');
+const Table = require('cli-table')
 
 const inform = console.log;
 
 const create = (herbs, currentHerb, time, benefits) => {
-
     const herb = {
 
         name: currentHerb,
@@ -16,16 +16,34 @@ const create = (herbs, currentHerb, time, benefits) => {
 }
 
 const index = (herbList) => {
+    const headers = Object.keys(herbList[0])
+    
+    const table = new Table({
+        head: headers,
+        colWidths: [40, 8, 12, 38],
+        style: {
+            head: ['green'],
+            border:['blue']
+        }
+    });
 
-    herbList.map(herb => {
-        return `${herb.id}: ${herb.name}`
-    })    
+    herbList.forEach(herb => {
+        table.push(headers.map(header => herb[header]))
+
+    })
+
+    // herbList.map(herb => {
+    //     return console.table(herb)
+    // })    
+
+    inform(table.toString())
 }
 
 const show = (herbList, herbId) => {
     // Tried using the ternary to produce a message but the functionality of find will produce the element itself rather than the message so seperate the logic to produce other logic you would want to implement. --Side Note. 
 
     const herb = herbList.find(herb => herb.id === herbId);
+
 
     if (herb) {
         return `${herb.name} was found with the Id:${herbId}, which helps with ${herb.description}!`;
@@ -72,13 +90,19 @@ const destroy = (herbList, herbId) => {
         inform('Herb was successfully removed!')
         return herbList;
     } else {
-        inform('Herb was not found, ')
+        inform('Herb was not found! ')
         return herbList;
     }
 }
 
 
-module.exports = { create, index, show, destroy, update }
+module.exports = { 
+    create, 
+    index, 
+    show, 
+    destroy, 
+    update 
+}
 
 
 

@@ -46,5 +46,23 @@
     "id": "DVG285",
     "steep": "8 minutes",
     "description": "Pain Relief, Immune System"
+  },
+  {
+    "name": "Mint",
+    "id": "zv4QVp",
+    "steep": "8 minutes",
+    "description": "Antioxidant, Antibacterial"
+  },
+  {
+    "name": "Rosemary",
+    "id": "OIamjb",
+    "steep": "6 minutes",
+    "description": "Antioxidant, Cognitive"
+  },
+  {
+    "name": "Thyme",
+    "id": "qjopzp",
+    "steep": "9 minutes",
+    "description": "Antioxidant, Respiratory"
   }
 ]
